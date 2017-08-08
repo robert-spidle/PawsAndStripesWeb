@@ -1,0 +1,137 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #9c8158;
+  height: 30px;
+  padding-top: 10px;
+  padding-right: 25px;
+  text-align: right;
+  color: white;
+}
+
+.App-intro {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  font-size: large;
+  height: 100px;
+  padding-top: 50px;
+  background-color: #000;
+}
+
+.Name-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Header-text {
+  font-family: "Stardos Stencil", cursive;
+  font-size: 32px;
+  color: #9c8158;
+}
+
+.Hours-text-container{
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+  
+}
+
+.Hours-text {
+  text-align: center;
+  color: #9c8158;
+  font-size: 14px;
+  border-right-style: solid;
+  border-right-color: #FFF;
+  border-right-width: 1px;
+  padding-right: 15px;
+}
+
+.Hours-numbers {
+  color: #FFF;
+  text-align: center;
+  font-size: 44px;
+  font-weight: bold;
+  padding-right: 50px;
+  border-right-style: solid;
+  border-right-color: #FFF;
+  border-right-width: 1px;
+  padding-right: 15px;
+
+}
+
+.Volunteer-text-container {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+}
+
+.Volunteer-text {
+  text-align: center;
+  color: #9c8158;
+  font-size: 14px;
+}
+
+.Volunteer-numbers {
+  color: #FFF;
+  text-align: center;
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  height: stretch;
+  padding-top: 75px;
+  padding-left: 25px;
+  background-color: #000;
+  color: #FFF;
+}
+
+.Logo {
+  align-self: flex-start;
+  width: 180px;
+  height: 120px;
+}
+
+.Img-container {
+  display: flex;
+  width: 15%;
+  padding-right: 20px;
+  justify-content: flex-end;
+}
+
+.Text-container {
+  display: flex;
+  width: 73.5%;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.Search-criteria {
+  display: flex;
+  color: #FFF;
+}
+
+.Results-table {
+  display: flex;
+  background-color: #FFF;
+  color: #000;
+  width: 98%;
+  height: stretch;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #9c8158;
+}
+
+.Labels {
+  display: inline-block;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
