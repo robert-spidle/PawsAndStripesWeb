@@ -53,23 +53,25 @@ class App extends Component {
               Volunteer Information
             </text>
           </div>
-          {/* Sum of volunteer hours */}
-          <div className="Hours-text-container">
-            <text className="Hours-numbers">
-              415
-            </text>
-            <text className="Hours-text">
-              current total hours
-            </text>
-          </div>
-          {/* Total number of volunteers */}
-          <div className="Volunteer-text-container">
-            <text className="Volunteer-numbers">
-              15
-            </text>
-            <text className="Volunteer-text">
-              current total volunteers
-            </text>
+          <div className="Aggregate-container">
+            {/* Sum of volunteer hours */}
+            <div className="Hours-text-container">
+              <text className="Hours-numbers">
+                415
+              </text>
+              <text className="Hours-text">
+                current total hours
+              </text>
+            </div>
+            {/* Total number of volunteers */}
+            <div className="Volunteer-text-container">
+              <text className="Volunteer-numbers">
+                15
+              </text>
+              <text className="Volunteer-text">
+                current total volunteers
+              </text>
+            </div>
           </div>
         </div>
         {/* Search criteria */}

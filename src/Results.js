@@ -8,27 +8,21 @@ class Results extends React.Component {
         const data = [
             {
                 name: 'Tanner Linsley',
-                age: 26,
-                friend: {
-                    name: 'Jason Maurer',
-                    age: 23,
-                }
+                email: 'tanner.linsley@ruralsourcing.com',
+                lastDate: '08-08-2017',
+                totalHours: 16
             },
             {
                 name: 'Robert Spidle',
-                age: 32,
-                friend: {
-                    name: 'Joe Chacon',
-                    age: 26,
-                }
+                email: 'robert.spidle@ruralsourcing.com',
+                lastDate: '07-08-2017',
+                totalHours: 50
             },
             {
-                name: this.props.searchParams,
-                age: this.props.startDate,
-                friend: {
-                    name: "Testing",
-                    age: this.props.endDate
-                }
+                name: 'Joe Chacon',
+                email: 'joe.chacon@ruralsourcing.com',
+                lastDate: (new Date().toISOString().substr(8,2)) + '-' + (new Date().toISOString().substr(5,2)) + '-' + (new Date().toISOString().substr(0,4)),
+                totalHours: 80
             }
         ];
     
@@ -38,23 +32,32 @@ class Results extends React.Component {
             columns: [
                 {
                     Header: 'Name',
-                    accessor: 'name' // String-based value accessors! 
+                    accessor: 'name',
+                    minWidth: 40,
+                    headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginLeft: '10px'},
+                    style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px', marginLeft: '10px'}, 
                 }, {
-                    Header: 'Age',
-                    accessor: 'age',
-                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components! 
+                    Header: 'email',
+                    accessor: 'email',
+                    headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px'},
+                    style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px'}, 
                 }, {
-                    id: 'friendName', // Required because our accessor is not a string 
-                    Header: 'Friend Name',
-                    accessor: d => d.friend.name // Custom value accessors! 
+                    Header: 'last volunteer date',
+                    accessor: 'lastDate',
+                    headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px'},
+                    style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px'},
                 }, {
-                    Header: props => <span>Friend Age</span>, // Custom header components! 
-                    accessor: 'friend.age'
-                }]
+                    Header: 'total hours', 
+                    accessor: 'totalHours',
+                    headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginRight: '10px'},
+                    style: {fontWeight: 'bold', textAlign: 'center',borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px'}
+                }],
+                style: {textAlign: 'left'}
         }];
         
         return(               
                 <ReactTable
+                    minRows={data.length + 1}
                     data={data}
                     columns={columns}
                     className="-highlight"
