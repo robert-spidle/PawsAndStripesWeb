@@ -47,7 +47,7 @@ class Results extends React.Component {
                 <ReactTable
                     data={data}
                     columns={columns}
-                    className="ReactTable -highlight"
+                    className="-highlight"
                 />
         )
     }

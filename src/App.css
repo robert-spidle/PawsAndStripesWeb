@@ -18,6 +18,7 @@
   font-size: large;
   height: 100px;
   padding-top: 30px;
+  padding-bottom: 20px;
   background-color: #000;
 }
 
@@ -85,10 +86,10 @@
   display: flex;
   flex-direction: column;
   height: stretch;
-  padding-top: 50px;
+  padding-top: 70px;
   padding-left: 25px;
   background-color: #000;
-  color: #FFF;
+  color: #FFF; 
 }
 
 .Logo {
@@ -114,7 +115,8 @@
 .Search-criteria {
   display: flex;
   position: relative;
-  top: 5px;
+  top: -40px;
+  left: 10px;
   color: #FFF;
   z-index: 1;
 }
@@ -125,6 +127,9 @@
   width: 98%;
   height: stretch;
   align-items: 'stretch';
+  border-style: solid;
+  border-width: 2px;
+  border-color: #9c8158;
 }
 
 .Labels {
