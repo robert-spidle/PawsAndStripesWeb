@@ -8,19 +8,23 @@ class App extends Component {
       <div className="App">
         <link href="https://fonts.googleapis.com/css?family=Stardos+Stencil" rel="stylesheet"/>
         <div className="App-header">
-          <text className="Name-text">
+          {/* Username Display */}
+          <text className="Name-text">  
             Joe Dallacqua
           </text>
         </div>
+        {/* Paws and Stripes Flag icon */}
         <div className="App-intro">
           <div className="Img-container">
             <img src="https://cdn.greatnonprofits.org/images/logos/BlackWhiteLogoSmall1.png" alt="PawsAndStripes logo" className="Logo"/>
           </div>
+          {/* Header Text */}
           <div className="Text-container">
             <text className="Header-text">
               Volunteer Information
             </text>
           </div>
+          {/* Sum of volunteer hours */}
           <div className="Hours-text-container">
             <text className="Hours-numbers">
               415
@@ -29,6 +33,7 @@ class App extends Component {
               current total hours
             </text>
           </div>
+          {/* Total number of volunteers */}
           <div className="Volunteer-text-container">
             <text className="Volunteer-numbers">
               15
@@ -38,6 +43,7 @@ class App extends Component {
             </text>
           </div>
         </div>
+        {/* Search criteria */}
         <div className="Content">
           <div className="Search-criteria">
             <form>
@@ -46,25 +52,26 @@ class App extends Component {
                   search filter
                 </label>
                 <br />
-                <input type="text" name="filter" />
+                <input type="text" name="filter" className="Input-box-search"/>
               </div>
               <div style={{float: "left", marginRight: "15px"}}>
-                <label>
+                <label className="Labels">
                   start date
                 </label>
                 <br />
-                <input type="date" name="start-date" />
+                <input type="date" name="start-date" className="Input-box-date"/>
               </div>
               <div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
                   end date
                 </label>
                 <br />
-                <input type="date" name="end-date" />
+                <input type="date" name="end-date" className="Input-box-date"/>
               </div>
             </form>
           </div>
-          <div>
+          <div className="Results-table">
+            {/* Instance of Results class to display search results */}
             <Results />            
           </div>
         </div>
