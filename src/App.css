@@ -100,14 +100,14 @@
 
 .Img-container {
   display: flex;
-  width: 15%;
+  width: 11%;
   padding-right: 20px;
   justify-content: flex-end;
 }
 
 .Text-container {
   display: flex;
-  width: 73.5%;
+  width: 77%;
   justify-content: flex-start;
   padding-top: 40px;
 }
@@ -144,6 +144,10 @@
   background-color: #000;
   color: #FFF;
   border: 1px, solid, #FFF;
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 5px;
 }
 
 .Input-box-date {
@@ -152,6 +156,9 @@
   background-color: #000;
   color: #FFF;
   border: 1px, solid, #FFF;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
