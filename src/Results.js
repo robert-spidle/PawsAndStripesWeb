@@ -5,22 +5,32 @@ import '../node_modules/react-table/react-table.css'
 
 class Results extends React.Component {
     render() {
-        const data = [{
-            name: 'Tanner Linsley',
-            age: 26,
-            friend: {
-            name: 'Jason Maurer',
-            age: 23,
-            }
-        },
-        {
-            name: 'Robert Spidle',
-            age: 32,
-            friend: {
-                name: 'Joe Chacon',
+        const data = [
+            {
+                name: 'Tanner Linsley',
                 age: 26,
+                friend: {
+                    name: 'Jason Maurer',
+                    age: 23,
+                }
+            },
+            {
+                name: 'Robert Spidle',
+                age: 32,
+                friend: {
+                    name: 'Joe Chacon',
+                    age: 26,
+                }
+            },
+            {
+                name: this.props.searchParams,
+                age: this.props.startDate,
+                friend: {
+                    name: "Testing",
+                    age: this.props.endDate
+                }
             }
-        }];
+        ];
     
         const columns = [
         {

@@ -3,6 +3,35 @@ import './App.css';
 import Results from './Results';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      searchParams: "Search", 
+      startDate: new Date().toISOString().substr(0,10), 
+      endDate: new Date().toISOString().substr(0,10),
+    }
+    this.handleStartDateChange = this.handleStartDateChange.bind(this);
+    this.handleEndDateChange = this.handleEndDateChange.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+  }
+
+  handleStartDateChange(e){
+    this.setState({startDate: e.target.value});
+  }
+
+  handleEndDateChange(e){
+    if(e.target.value >= this.state.startDate){
+      this.setState({endDate: e.target.value});
+    }
+    else{
+      alert("End date must be after start date.");
+    }
+  }
+
+  handleSearchChange(e){
+    this.setState({searchParams: e.target.value});
+  }
+
   render() {
     return (
       <div className="App">
@@ -52,27 +81,27 @@ class App extends Component {
                   search filter
                 </label>
                 <br />
-                <input type="text" name="filter" className="Input-box-search"/>
+                <input type="text" name="filter" className="Input-box-search" value={this.state.searchParams} onChange={this.handleSearchChange}/>
               </div>
               <div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
                   start date
                 </label>
                 <br />
-                <input type="date" name="start-date" className="Input-box-date"/>
+                <input type="date" name="start-date" className="Input-box-date" value={this.state.startDate} onChange={this.handleStartDateChange}/>
               </div>
               <div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
                   end date
                 </label>
                 <br />
-                <input type="date" name="end-date" className="Input-box-date"/>
+                <input type="date" name="end-date" className="Input-box-date" value={this.state.endDate} onChange={this.handleEndDateChange}/>
               </div>
             </form>
           </div>
           <div className="Results-table">
             {/* Instance of Results class to display search results */}
-            <Results />            
+            <Results searchParams={this.state.searchParams} startDate={this.state.startDate} endDate={this.state.endDate}/>            
           </div>
         </div>
       </div>
