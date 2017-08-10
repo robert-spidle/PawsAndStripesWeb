@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
 import Results from './Results';
+import { MdPerson, MdSchedule } from 'react-icons/lib/md'
+
 
 class App extends Component {
+
   constructor(props){
     super(props);
     this.state = {
       searchParams: "Search", 
       startDate: new Date().toISOString().substr(0,10), 
       endDate: new Date().toISOString().substr(0,10),
+      button1Color: '#9c8158',
+      button2Color: '#000',
+      button1Selected: true,
+      button2Selected: false,
     }
     this.handleStartDateChange = this.handleStartDateChange.bind(this);
     this.handleEndDateChange = this.handleEndDateChange.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.activateButton1 = this.activateButton1.bind(this);
+    this.activateButton2 = this.activateButton2.bind(this);
   }
 
   handleStartDateChange(e){
@@ -32,7 +41,32 @@ class App extends Component {
     this.setState({searchParams: e.target.value});
   }
 
+  activateButton1(e){
+    if(this.state.button1Color==='#000' && !this.state.button1Selected){
+      this.setState({
+        button1Color: '#9c8158',
+        button1Selected: true,
+        button2Color: '#000',
+        button2Selected: false
+      })
+    }
+  }
+
+  activateButton2(e){
+    if(this.state.button2Color==='#000' && !this.state.button2Selected){
+      this.setState({
+        button1Color: '#000',
+        button1Selected: false,
+        button2Color: '#9c8158',
+        button2Selected: true
+      })
+    }
+  }
+
+
+
   render() {
+    
     return (
       <div className="App">
         <link href="https://fonts.googleapis.com/css?family=Stardos+Stencil" rel="stylesheet"/>
@@ -100,6 +134,40 @@ class App extends Component {
                 <input type="date" name="end-date" className="Input-box-date" value={this.state.endDate} onChange={this.handleEndDateChange}/>
               </div>
             </form>
+            <div className='Button-container'>
+                <MdPerson 
+                  style={{
+                    border: 'solid', 
+                    borderWidth:'1px', 
+                    borderRadius: '48px',
+                    backgroundColor: this.state.button1Color, 
+                    position:'relative',  
+                    textAlign:'right', 
+                    marginLeft: '5px',
+                    padding: '5px',
+                    cursor: 'pointer'
+                  }}
+                  size={36}
+                  tabIndex={0}
+                  onClick={this.activateButton1}
+                />
+              <MdSchedule 
+                style={{
+                  border: 'solid', 
+                  borderWidth:'1px',
+                  borderRadius: '48px', 
+                  backgroundColor: this.state.button2Color, 
+                  position:'relative',  
+                  textAlign:'right', 
+                  marginLeft: '5px',
+                  padding: '5px',
+                  cursor: 'pointer',
+                }}
+                size={36}
+                tabIndex={0}
+                onClick={this.activateButton2}
+              />
+            </div>
           </div>
           <div className="Results-table">
             {/* Instance of Results class to display search results */}
