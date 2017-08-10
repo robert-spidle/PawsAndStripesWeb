@@ -12,6 +12,7 @@
   padding-right: 25px;
   text-align: right;
   color: white;
+
 }
 
 .App-intro {
@@ -23,12 +24,17 @@
   padding-top: 30px;
   padding-bottom: 20px;
   background-color: #000;
+  margin: 0 auto;
+  max-width: 1400px;
 }
 
 .Aggregate-container {
   display: flex;
   position: relative;
   align-content: center;
+  min-width: 210px;
+  margin: 0 auto;
+  padding-top: 15px;
 }
 
 .Button-container {
@@ -51,8 +57,8 @@
 .Hours-text-container{
   display: flex;
   flex-direction: column;
-  padding-top: 30px;
-  padding-right: 15px;
+  min-width: 110px;
+  margin: 0 auto;
 }
 
 .Hours-text {
@@ -64,7 +70,6 @@
   border-right-color: #FFF;
   border-right-width: 1px;
   padding-top: 5px;
-  padding-right: 10px;
   
 }
 
@@ -76,17 +81,13 @@
   border-right-style: solid;
   border-right-color: #FFF;
   border-right-width: 1px;
-  padding-right: 15px;
-  padding-bottom: 10px;
-
 }
 
 .Volunteer-text-container {
   display: flex;
   flex-direction: column;
-  padding-top: 30px;
-  margin-left: -10px;
-  margin-right: 15px;
+  min-width: 100px;
+  margin: 0 auto;
 }
 
 .Volunteer-text {
@@ -101,7 +102,6 @@
   text-align: center;
   font-size: 60px;
   font-weight: bold;
-  padding-bottom: 10px;
 }
 
 .Content {
@@ -113,7 +113,9 @@
   margin-left: 2%;
   margin-right: 2%;
   background-color: #000;
-  color: #FFF; 
+  color: #FFF;   
+  margin: 0 auto;
+  max-width: 1400px;
 }
 
 .Logo {
@@ -126,10 +128,8 @@
 .Img-container {
   display: flex;
   position: relative;
-  width: 160px;
-  height: 120px;
   background-color: #9c8158;
-  margin-left: 3%;
+  margin-left: 1%;
 }
 
 .Text-container {
@@ -137,7 +137,7 @@
   width: stretch;
   justify-content: flex-start;
   padding-top: 40px;
-  margin-left: 3%;
+  margin-left: 2%;
 }
 
 .Search-criteria {
@@ -155,7 +155,7 @@
 .Results-table {
   background-color: #FFF;
   color: #000;
-  width: 98%;
+  width: 100%;
   height: 100%;
   align-items: 'stretch';
   border-style: solid;
