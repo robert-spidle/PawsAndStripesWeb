@@ -1,3 +1,12 @@
+.Aggregate-container {
+  display: flex;
+  position: relative;
+  align-content: center;
+  min-width: 210px;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
 .App {
   text-align: center;
   height: stretch;
@@ -6,13 +15,14 @@
 }
 
 .App-header {
+  display: flex;
+  flex-direction: row;
   background-color: #9c8158;
-  height: 30px;
-  padding-top: 10px;
-  padding-right: 25px;
-  text-align: right;
+  height: 50px;
+  width: stretch;
+  justify-content: flex-end;
+  align-items: right;
   color: white;
-
 }
 
 .App-intro {
@@ -28,80 +38,21 @@
   max-width: 1400px;
 }
 
-.Aggregate-container {
-  display: flex;
-  position: relative;
-  align-content: center;
-  min-width: 210px;
-  margin: 0 auto;
-  padding-top: 15px;
-}
-
 .Button-container {
   display:flex;
   flex-direction: row;
   align-self: flex-end;
 }
 
-.Name-text {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.Header-text {
-  font-family: "Stardos Stencil", cursive;
-  font-size: 40px;
-  color: #9c8158;
-}
-
-.Hours-text-container{
+.Button-person {
   display: flex;
   flex-direction: column;
-  min-width: 110px;
-  margin: 0 auto;
-}
 
-.Hours-text {
+}
+.Button-schedule {
   display: flex;
-  text-align: center;
-  color: #9c8158;
-  font-size: 14px;
-  border-right-style: solid;
-  border-right-color: #FFF;
-  border-right-width: 1px;
-  padding-top: 5px;
+  flex-direction: column;
   
-}
-
-.Hours-numbers {
-  color: #FFF;
-  text-align: center;
-  font-size: 60px;
-  font-weight: bold;
-  border-right-style: solid;
-  border-right-color: #FFF;
-  border-right-width: 1px;
-}
-
-.Volunteer-text-container {
-  display: flex;
-  flex-direction: column;
-  min-width: 100px;
-  margin: 0 auto;
-}
-
-.Volunteer-text {
-  text-align: center;
-  color: #9c8158;
-  font-size: 14px;
-  padding-top: 5px;
-}
-
-.Volunteer-numbers {
-  color: #FFF;
-  text-align: center;
-  font-size: 60px;
-  font-weight: bold;
 }
 
 .Content {
@@ -118,11 +69,67 @@
   max-width: 1400px;
 }
 
-.Logo {
-  align-self: flex-start;
-  position: relative;
-  width: 180px;
-  height: 120px;
+.Drop-button {
+  background-color: #9c8158;
+  color: #FFF;
+}
+
+.Name-text {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.Google-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.Google-logo {
+  width: 36px;
+  height: 36px;
+  padding-left: 8px;
+}
+
+.Google-text{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.Header-text {
+  font-family: "Stardos Stencil", cursive;
+  font-size: 40px;
+  color: #9c8158;
+}
+
+.Hours-text {
+  display: flex;
+  text-align: center;
+  color: #9c8158;
+  font-size: 14px;
+  border-right-style: solid;
+  border-right-color: #FFF;
+  border-right-width: 1px;
+  padding-top: 5px;
+}
+
+.Hours-text-container{
+  display: flex;
+  flex-direction: column;
+  min-width: 110px;
+  margin: 0 auto;
+}
+
+.Hours-numbers {
+  color: #FFF;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  border-right-style: solid;
+  border-right-color: #FFF;
+  border-right-width: 1px;
 }
 
 .Img-container {
@@ -132,24 +139,87 @@
   margin-left: 1%;
 }
 
-.Text-container {
-  display: flex;
-  width: stretch;
-  justify-content: flex-start;
-  padding-top: 40px;
-  margin-left: 2%;
+.Input-box-date {
+  width: 150px;
+  height: 40px;
+  background-color: #000;
+  color: #FFF;
+  border: 1px, solid, #FFF;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
 }
 
-.Search-criteria {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-  top: 20px;
-  left: 10px;
+.Input-box-search {
+  width: 250px;
+  height: 40px;
+  background-color: #000;
   color: #FFF;
-  width: 96%;
-  z-index: 1;
+  border: 1px, solid, #FFF;
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.Labels {
+  display: inline-block;
+  text-align: left;
+  font-size: 12px;
+  width: 100%;
+}
+
+.Login{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: stretch;
+  width: stretch;
+}
+
+.Login-content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  margin-top: 5%;
+}
+
+.Logo {
+  align-self: flex-start;
+  position: relative;
+  width: 180px;
+  height: 120px;
+}
+
+.Logout-menu-closed {
+  display: flex;
+  flex-direction: column;
+  background-color: #9c8158;
+  text-align: right;
+  color: #FFF;
+  cursor: pointer;
+  padding-top: 5px;
+}
+
+.Logout-menu-open {
+  display: flex;
+  flex-direction: column;
+  background-color:#6c5a3d;
+  text-align: right;
+  color: #FFF;
+  cursor: pointer;
+  padding-top: 5px;
+}
+
+.Paws-logo-login {
+  width: 50%;
+  height: 50%;
+  align-self: center;
+  padding-bottom: 15px;
 }
 
 .Results-table {
@@ -163,33 +233,44 @@
   border-color: #9c8158;
 }
 
-.Labels {
-  display: inline-block;
-  text-align: left;
-  font-size: 12px;
-  width: 100%;
-}
-.Input-box-search {
-  width: 250px;
-  height: 40px;
-  background-color: #000;
+.Search-criteria {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  top: 20px;
+  left: 10px;
   color: #FFF;
-  border: 1px, solid, #FFF;
-  font-size: 16px;
-  text-align: left;
-  font-weight: bold;
-  padding-left: 5px;
+  width: 96%;
 }
 
-.Input-box-date {
-  width: 150px;
-  height: 40px;
-  background-color: #000;
-  color: #FFF;
-  border: 1px, solid, #FFF;
-  font-size: 16px;
+.Text-container {
+  display: flex;
+  width: stretch;
+  justify-content: flex-start;
+  padding-top: 40px;
+  margin-left: 2%;
+}
+
+.Volunteer-text {
   text-align: center;
+  color: #9c8158;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.Volunteer-numbers {
+  color: #FFF;
+  text-align: center;
+  font-size: 60px;
   font-weight: bold;
+}
+
+.Volunteer-text-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  margin: 0 auto;
 }
 
 @keyframes App-logo-spin {
