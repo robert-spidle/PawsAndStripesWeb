@@ -173,7 +173,16 @@ class Data extends Component {
             </form>
             
             <div className='Button-container'>
-              {this.state.showPersonTT ? <div> Hours by Volunteer </div> : this.state.showScheduleTT ? <div> Hours by Day </div>: null }
+              {this.state.showPersonTT ? (
+                <div> 
+                  <text>Hours by Volunteer </text> 
+                </div>
+               ) : (
+                 this.state.showScheduleTT ? (
+                   <div>
+                     <text> Hours by Day </text>
+                    </div>
+                 ): null )}
               <MdPerson 
                   style={{
                     border: 'solid', 

@@ -69,6 +69,23 @@
   max-width: 1400px;
 }
 
+.Delete-icon {
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.rt-tr:hover .Delete-icon{
+  display: flex;
+  color: red;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  align-self: center;
+}
+
 .Drop-button {
   background-color: #9c8158;
   color: #FFF;
@@ -250,6 +267,11 @@
   justify-content: flex-start;
   padding-top: 40px;
   margin-left: 2%;
+}
+
+.Tooltip-text {
+  font-weight: bold;
+  font-size: 12px;
 }
 
 .Volunteer-text {
