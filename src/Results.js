@@ -45,6 +45,45 @@ class Results extends React.Component {
                 delete: <div className = "Delete-icon" id='delete'><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0} id='delete'/></div>                
             }
         ];
+
+        const data2 =[
+            {
+                date: '12/2/2017',
+                name: 'John Cairns',
+                email: 'john.cairns@ruralsourcing.com',
+                hours: 5
+            },
+            {
+                date: '12/1/2017',
+                name: 'John Cairns',
+                email: 'john.cairns@ruralsourcing.com',
+                hours: 4
+            },
+            {
+                date: '12/2/2017',
+                name: 'Robert Spidle',
+                email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
+                hours: 4
+            },
+            {
+                date: '12/1/2017',
+                name: 'Robert Spidle',
+                email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
+                hours: 4
+            },
+            {
+                date: '11/23/2017',
+                name: 'Joe Chacon',
+                email: 'joe.chacon@ruralsourcing.com',
+                hours: 12
+            },
+            {
+                date: '1/23/2016',
+                name: 'Joe Chacon',
+                email: 'joe.chacon@ruralsourcing.com',
+                hours: 7
+            }
+        ];
     
         const columns = [
         {
@@ -54,24 +93,28 @@ class Results extends React.Component {
                     Header: 'Name',
                     accessor: 'name',
                     minWidth: 350,
+                    filterable: 'true',
                     headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginLeft: '10px',},
                     style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px', marginLeft: '10px',}
                 }, {
-                    Header: 'email',
+                    Header: 'email address',
                     accessor: 'email',
                     minWidth: 350,
+                    filterable: 'true',
                     headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px',},
                     style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px',} 
                 }, {
                     Header: 'last volunteer date',
                     accessor: 'lastDate',
                     minWidth: 100,
+                    filterable: 'true',
                     headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px',},
                     style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px',}
                 }, {
                     Header: 'total hours', 
                     accessor: 'totalHours',
                     minWidth: 75,
+                    filterable: 'true',
                     headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', minWidth: '20'},
                     style: {fontWeight: 'bold', textAlign: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px',}
                     
@@ -85,7 +128,46 @@ class Results extends React.Component {
                 }],
                 style: {textAlign: 'left'}
         }];
-        
+
+        const columns2 = [
+            {
+                Header: "",
+                columns: [
+                    {
+                        Header: 'Date',
+                        accessor: 'date',
+                        minWidth: 150,
+                        filterable: 'true',
+                        headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginLeft: '10px',},
+                        style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px', marginLeft: '10px',}
+                    }, {
+                        Header: 'name',
+                        accessor: 'name',
+                        minWidth: 300,
+                        filterable: 'true',
+                        headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px',},
+                        style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px',}                       
+                    }, {
+                        Header: 'email address',
+                        accessor: 'email',
+                        minWidth: 350,
+                        filterable: 'true',
+                        headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px'},
+                        style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px'}
+                    }, {
+                        Header: 'daily hours',
+                        accessor: 'hours',
+                        minWidth: 100,
+                        filterable: 'true',
+                        headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginRight: '10px'},
+                        style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px', fontWeight: 'bold'}                        
+                    }
+                ],
+                style: {textAlign: 'left'}
+            }
+        ];
+        let tableData = this.props.displayScreen ? data : data2;
+        let tableColumns = this.props.displayScreen ? columns : columns2;
         return(
             <div> 
                 {/*<Fetch url="http://www.academicstudysolutions.com/pawsstripes/get.php?action=fullreport" options={{mode:'no-cors'}}>
@@ -94,8 +176,8 @@ class Results extends React.Component {
                         
                 <ReactTable
                     minRows={data.length}
-                    data={data}
-                    columns={columns}
+                    data={tableData}
+                    columns={tableColumns}
                     defaultPageSize={10}
                     className="-highlight"
                     getTdProps={(state,rowInfo,column, instance) => {

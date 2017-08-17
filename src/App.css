@@ -111,8 +111,9 @@
 }
 
 .Google-text{
-  padding-top: 10px;
-  padding-left: 10px;
+  padding-top: 5px;
+  padding-left: 50px;
+  margin: 0 auto;
 }
 
 .Header-text {
@@ -233,8 +234,8 @@
 }
 
 .Paws-logo-login {
-  width: 50%;
-  height: 50%;
+  width: 400px;
+  height: 280px;
   align-self: center;
   padding-bottom: 15px;
 }

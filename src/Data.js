@@ -3,14 +3,12 @@ import './App.css';
 import Results from './Results';
 import { MdPerson, MdSchedule } from 'react-icons/lib/md';
 
-
-
 class Data extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      searchParams: "Search", 
+      searchParams: "", 
       startDate: new Date().toISOString().substr(0,10), 
       endDate: new Date().toISOString().substr(0,10),
       button1Color: '#9c8158',
@@ -223,7 +221,13 @@ class Data extends Component {
           </div>
           <div className='Results-table'>
             {/* Instance of Results class to display search results */}
-            <Results searchParams={this.state.searchParams} startDate={this.state.startDate} endDate={this.state.endDate}/>            
+            <Results 
+              searchParams={this.state.searchParams} 
+              startDate={this.state.startDate} 
+              endDate={this.state.endDate} 
+              displayScreen={this.state.button1Selected}
+              filterString={this.state.searchParams}
+            />            
           </div>
         </div>
       </div>
