@@ -97,7 +97,7 @@ class Data extends Component {
           {menuOpen ? (
             <div className="Logout-menu-open" onClick={this.toggle} onKeyPress={this.toggle} onMouseLeave={this.toggle} tabIndex={0}>
               <text className='Name-text' onClick={this.toggle} onKeyPress={this.toggle}  tabIndex={0}>
-                {this.props.user}
+                {this.props.userName}
               </text>
               <text onClick={this.props.logout} onKeyPress={this.props.logout} tabIndex={0} className='Name-text'>
                 Logout
@@ -106,7 +106,7 @@ class Data extends Component {
             ) : (
             <div className='Logout-menu-closed'>
               <text onClick={this.toggle} onKeyPress={this.toggle} onMouseEnter={this.toggle} className='Name-text' tabIndex={0}>
-                {this.props.user}
+                {this.props.userName}
               </text>
             </div>
           )} 

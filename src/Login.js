@@ -14,6 +14,7 @@ class Login extends React.Component{
 
     responseGoogle(response) {
         console.log(response);
+        this.props.login(response.profileObj);
     }
 
     render(){
@@ -30,7 +31,7 @@ class Login extends React.Component{
                     <br />
                     <img src={PawsLogo} alt="https://cdn.greatnonprofits.org/images/logos/BlackWhiteLogoSmall1.png" className="Paws-logo-login" />
                     <GoogleLogin
-                        clientId="857691639654-aot23kgou1ug73llupjeeqj7677hel1a.apps.googleusercontent.com"
+                        clientId="197907029127-nq1q9d614of0orumn23pkaq6una1n4sa.apps.googleusercontent.com"
                         buttonText={<div className="Google-button"> 
                                         <img src={SignInLogo} alt="Google Logo" className='Google-logo'/> 
                                         <text className='Google-text'>Sign in with Google </text>

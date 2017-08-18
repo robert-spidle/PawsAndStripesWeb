@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
+      userName: "",
       user: null,
       isLoggedIn: false
     }
@@ -19,14 +20,15 @@ class App extends Component {
   handleLogin(user) {
     this.setState({
       isLoggedIn: true,
-      user: "Robert Spidle"
+      userName: user.name
     })
   }
 
   handleLogout() {
     this.setState({
       isLoggedIn:false,
-      user: null
+      user: null,
+      userName: ""
     })
   }
 
@@ -34,7 +36,7 @@ class App extends Component {
     
     let screen = null;
     if(this.state.isLoggedIn){
-      screen = <Data logout={this.handleLogout} user={this.state.user}/>
+      screen = <Data logout={this.handleLogout} user={this.state.user} userName={this.state.userName}/>
     }
     else {
       screen = <Login login={this.handleLogin}/>
