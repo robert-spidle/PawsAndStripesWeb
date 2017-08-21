@@ -11,80 +11,120 @@ class Results extends React.Component {
         super(props);
         this.state = {
             showDelete: false,
+            data: [
+                {
+                    name: 'Tanner Linsley',
+                    email: 'tanner.linsley@ruralsourcing.com',
+                    lastDate: '08-08-2017',
+                    totalHours: 16,
+                    //delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+                },
+                {
+                    name: 'Robert Spidle',
+                    email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
+                    lastDate: '07-31-2017',
+                    totalHours: 50,
+                    //delete: <div className = "Delete-icon"><MdRemoveCircle style={{  width: '24px',height: '24px'}} tabIndex={0}/></div>
+                },
+                {
+                    name: 'Joe Chacon',
+                    email: 'joe.chacon@ruralsourcing.com',
+                    lastDate: (new Date().toISOString().substr(5,2)) + '-' + (new Date().toISOString().substr(8,2)) + '-' + (new Date().toISOString().substr(0,4)),
+                    totalHours: 80,
+                    //delete: <div className = "Delete-icon" id='delete'><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0} id='delete'/></div>                
+                }
+            ],
+            data2: [
+                {
+                    date: '12/2/2017',
+                    name: 'John Cairns',
+                    email: 'john.cairns@ruralsourcing.com',
+                    hours: 5,
+                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+                },
+                {
+                    date: '12/1/2017',
+                    name: 'John Cairns',
+                    email: 'john.cairns@ruralsourcing.com',
+                    hours: 4,
+                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+                },
+                {
+                    date: '12/2/2017',
+                    name: 'Robert Spidle',
+                    email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
+                    hours: 4,
+                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+                },
+                {
+                    date: '12/1/2017',
+                    name: 'Robert Spidle',
+                    email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
+                    hours: 4,
+                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+                },
+                {
+                    date: '11/23/2017',
+                    name: 'Joe Chacon',
+                    email: 'joe.chacon@ruralsourcing.com',
+                    hours: 12,
+                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+                },
+                {
+                    date: '1/23/2016',
+                    name: 'Joe Chacon',
+                    email: 'joe.chacon@ruralsourcing.com',
+                    hours: 7,
+                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+                }
+            ]
         }
+    
         this.delete = this.delete.bind(this);
+        this.totalHourSum = this.totalHourSum.bind(this);
+        this.setData = this.setData.bind(this);
+
+    }
+    
+    componentDidMount(){
+        this.totalHourSum(this.state.data);
     }
 
     delete(name, email, date, hours) {
         console.log("Name: " + name + " Email: " + email + " Date: " + date + " Hours " + hours);
     }
 
-
-
-    render() {
-        const data = [
-            {
-                name: 'Tanner Linsley',
-                email: 'tanner.linsley@ruralsourcing.com',
-                lastDate: '08-08-2017',
-                totalHours: 16,
-                delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-            },
-            {
-                name: 'Robert Spidle',
-                email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-                lastDate: '07-31-2017',
-                totalHours: 50,
-                delete: <div className = "Delete-icon"><MdRemoveCircle style={{  width: '24px',height: '24px'}} tabIndex={0}/></div>
-            },
-            {
-                name: 'Joe Chacon',
-                email: 'joe.chacon@ruralsourcing.com',
-                lastDate: (new Date().toISOString().substr(5,2)) + '-' + (new Date().toISOString().substr(8,2)) + '-' + (new Date().toISOString().substr(0,4)),
-                totalHours: 80,
-                delete: <div className = "Delete-icon" id='delete'><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0} id='delete'/></div>                
+    totalHourSum(){
+        console.log(this.state.data);
+        let hoursSum=0;
+        let hoursSum2=0;
+        let userCount = this.state.data.length;
+        let userCount2 = this.state.data2.length;
+        for(let i=0; i<userCount; i++){
+            if(this.state.data[i].totalHours){
+                console.log(this.state.data[i]);
+                hoursSum += this.state.data[i].totalHours;
+                console.log(hoursSum);
             }
-        ];
-
-        const data2 =[
-            {
-                date: '12/2/2017',
-                name: 'John Cairns',
-                email: 'john.cairns@ruralsourcing.com',
-                hours: 5
-            },
-            {
-                date: '12/1/2017',
-                name: 'John Cairns',
-                email: 'john.cairns@ruralsourcing.com',
-                hours: 4
-            },
-            {
-                date: '12/2/2017',
-                name: 'Robert Spidle',
-                email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-                hours: 4
-            },
-            {
-                date: '12/1/2017',
-                name: 'Robert Spidle',
-                email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-                hours: 4
-            },
-            {
-                date: '11/23/2017',
-                name: 'Joe Chacon',
-                email: 'joe.chacon@ruralsourcing.com',
-                hours: 12
-            },
-            {
-                date: '1/23/2016',
-                name: 'Joe Chacon',
-                email: 'joe.chacon@ruralsourcing.com',
-                hours: 7
+        }
+        for(let i=0; i<userCount2; i++){
+            if(this.state.data2[i].hours){
+                console.log(this.state.data2[i]);
+                hoursSum2 += this.state.data2[i].hours;
+                console.log(hoursSum2);
             }
-        ];
-    
+        }
+        this.props.setTotalHours(hoursSum, userCount, hoursSum2, userCount2);
+    }
+
+    setData(data){
+        this.setState({
+            data: data,
+        })
+    }
+
+
+    render() {   
         const columns = [
         {
             Header: "",
@@ -115,16 +155,9 @@ class Results extends React.Component {
                     accessor: 'totalHours',
                     minWidth: 75,
                     filterable: 'true',
-                    headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', minWidth: '20'},
-                    style: {fontWeight: 'bold', textAlign: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px',}
+                    headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', minWidth: '20', marginRight: '10px'},
+                    style: {fontWeight: 'bold', textAlign: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px'}
                     
-                }, {
-                    Header: '',
-                    accessor: 'delete',
-                    sortable: false,
-                    minWidth: 50,
-                    headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginRight: '10px'},
-                    style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px'}
                 }],
                 style: {textAlign: 'left'}
         }];
@@ -159,14 +192,21 @@ class Results extends React.Component {
                         accessor: 'hours',
                         minWidth: 100,
                         filterable: 'true',
-                        headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginRight: '10px'},
-                        style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px', fontWeight: 'bold'}                        
-                    }
+                        headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px'},
+                        style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', fontWeight: 'bold'}                        
+                    }, {
+                    Header: '',
+                    accessor: 'delete',
+                    sortable: false,
+                    minWidth: 50,
+                    headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginRight: '10px'},
+                    style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px'}
+                }
                 ],
                 style: {textAlign: 'left'}
             }
         ];
-        let tableData = this.props.displayScreen ? data : data2;
+        let tableData = this.props.displayScreen ? this.state.data : this.state.data2;
         let tableColumns = this.props.displayScreen ? columns : columns2;
         return(
             <div> 
@@ -175,7 +215,7 @@ class Results extends React.Component {
                 </Fetch>*/}
                         
                 <ReactTable
-                    minRows={data.length}
+                    minRows={this.state.data.length}
                     data={tableData}
                     columns={tableColumns}
                     defaultPageSize={10}
@@ -189,7 +229,7 @@ class Results extends React.Component {
                                     var deleteBool = window.confirm("Are you sure you want to delete " + rowInfo.row.name + "'s record?")
                                     console.log(deleteBool)
                                     if (deleteBool){
-                                        this.delete(rowInfo.row.name, rowInfo.row.email, rowInfo.row.lastDate, rowInfo.row.totalHours)
+                                        this.delete(rowInfo.row.name, rowInfo.row.email, rowInfo.row.date, rowInfo.row.hours)
                                     }
                                 }
                             }

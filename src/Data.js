@@ -18,6 +18,10 @@ class Data extends Component {
       isMenuOpen: false,
       showPersonTT: false,
       showScheduleTT: false,
+      totalHours: 0,
+      userCount: 0,
+      totalHours2: 0,
+      userCount2: 0
     }
     this.handleStartDateChange = this.handleStartDateChange.bind(this);
     this.handleEndDateChange = this.handleEndDateChange.bind(this);
@@ -27,6 +31,7 @@ class Data extends Component {
     this.toggle = this.toggle.bind(this);
     this.togglePersonTT = this.togglePersonTT.bind(this);
     this.toggleSceduleTT = this.toggleSceduleTT.bind(this);
+    this.setTotalHours = this.setTotalHours.bind(this);
   }
 
   handleStartDateChange(e){
@@ -86,8 +91,19 @@ class Data extends Component {
     })
   }
 
+  setTotalHours(hoursSum, userCount, hoursSum2, userCount2){
+    this.setState({
+      totalHours: hoursSum,
+      userCount: userCount,
+      totalHours2: hoursSum2,
+      userCount2: userCount2
+    })
+  }
+
   render() {
    let menuOpen = this.state.isMenuOpen;
+   let totalHoursDisplay = this.state.button1Selected ? this.state.totalHours : this.state.totalHours2;
+   let userCountDisplay = this.state.button1Selected ? this.state.userCount : this.state.userCount2;
     return (
       <div className="App">
         <link href="https://fonts.googleapis.com/css?family=Stardos+Stencil" rel="stylesheet"/>
@@ -126,7 +142,7 @@ class Data extends Component {
             {/* Sum of volunteer hours */}
             <div className="Hours-text-container">
               <text className="Hours-numbers">
-                415
+                {totalHoursDisplay}
               </text>
               <text className="Hours-text">
                 current total hours
@@ -135,7 +151,7 @@ class Data extends Component {
             {/* Total number of volunteers */}
             <div className="Volunteer-text-container">
               <text className="Volunteer-numbers">
-                15
+                {userCountDisplay}
               </text>
               <text className="Volunteer-text">
                 current total volunteers
@@ -227,6 +243,7 @@ class Data extends Component {
               endDate={this.state.endDate} 
               displayScreen={this.state.button1Selected}
               filterString={this.state.searchParams}
+              setTotalHours={this.setTotalHours}
             />            
           </div>
         </div>
