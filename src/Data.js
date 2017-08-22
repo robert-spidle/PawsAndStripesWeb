@@ -102,6 +102,7 @@ class Data extends Component {
   }
 
   render() {
+   let tipString = 'Filter the table by typing in the text boxes below the column headers. The hours columns can filter less than (<10), greater than (>3) or equal to (6).';
    let menuOpen = this.state.isMenuOpen;
    let totalHoursDisplay = this.state.button1Selected ? this.state.totalHours : this.state.totalHours2;
    let userCountDisplay = this.state.button1Selected ? this.state.userCount : this.state.userCount2;
@@ -264,6 +265,9 @@ class Data extends Component {
               setTotalHours={this.setTotalHours}
             />            
           </div>
+          <text className='Filter-tip'>
+            {tipString}
+          </text>
         </div>
       </div>
     );

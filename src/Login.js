@@ -13,13 +13,13 @@ class Login extends React.Component{
     }
 
     responseGoogle(response) {
-        console.log(response);
+        //console.log(response);
         this.props.login(response.profileObj);
     }
 
     failureGoogle(response){
-        console.log(response);
-        this.props.logout;
+        //console.log(response);
+        this.props.logout();
     }
 
     render(){

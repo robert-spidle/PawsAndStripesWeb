@@ -3,6 +3,8 @@ import ReactTable from 'react-table';
 import './react-table.css';
 import './App.css';
 import { MdRemoveCircle } from 'react-icons/lib/md';
+import mockData from './MOCK_DATA.json';
+import mockData2 from './MOCK_DATA_2.json';
 // import Fetch from 'react-fetch';
 
 class Results extends React.Component {
@@ -11,73 +13,75 @@ class Results extends React.Component {
         super(props);
         this.state = {
             showDelete: false,
-            data: [
-                {
-                    name: 'Tanner Linsley',
-                    email: 'tanner.linsley@ruralsourcing.com',
-                    lastDate: '08-08-2017',
-                    totalHours: 16,
-                    //delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-                },
-                {
-                    name: 'Robert Spidle',
-                    email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-                    lastDate: '07-31-2017',
-                    totalHours: 50,
-                    //delete: <div className = "Delete-icon"><MdRemoveCircle style={{  width: '24px',height: '24px'}} tabIndex={0}/></div>
-                },
-                {
-                    name: 'Joe Chacon',
-                    email: 'joe.chacon@ruralsourcing.com',
-                    lastDate: (new Date().toISOString().substr(5,2)) + '-' + (new Date().toISOString().substr(8,2)) + '-' + (new Date().toISOString().substr(0,4)),
-                    totalHours: 80,
-                    //delete: <div className = "Delete-icon" id='delete'><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0} id='delete'/></div>                
-                }
-            ],
-            data2: [
-                {
-                    date: '12/2/2017',
-                    name: 'John Cairns',
-                    email: 'john.cairns@ruralsourcing.com',
-                    hours: 5,
-                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-                },
-                {
-                    date: '12/1/2017',
-                    name: 'John Cairns',
-                    email: 'john.cairns@ruralsourcing.com',
-                    hours: 4,
-                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-                },
-                {
-                    date: '12/2/2017',
-                    name: 'Robert Spidle',
-                    email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-                    hours: 4,
-                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-                },
-                {
-                    date: '12/1/2017',
-                    name: 'Robert Spidle',
-                    email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-                    hours: 4,
-                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-                },
-                {
-                    date: '11/23/2017',
-                    name: 'Joe Chacon',
-                    email: 'joe.chacon@ruralsourcing.com',
-                    hours: 12,
-                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-                },
-                {
-                    date: '1/23/2016',
-                    name: 'Joe Chacon',
-                    email: 'joe.chacon@ruralsourcing.com',
-                    hours: 7,
-                    delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-                }
-            ]
+            // data: [
+            //     {
+            //         name: 'Tanner Linsley',
+            //         email: 'tanner.linsley@ruralsourcing.com',
+            //         lastDate: '08-08-2017',
+            //         totalHours: 16,
+            //         //delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+            //     },
+            //     {
+            //         name: 'Robert Spidle',
+            //         email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
+            //         lastDate: '07-31-2017',
+            //         totalHours: 50,
+            //         //delete: <div className = "Delete-icon"><MdRemoveCircle style={{  width: '24px',height: '24px'}} tabIndex={0}/></div>
+            //     },
+            //     {
+            //         name: 'Joe Chacon',
+            //         email: 'joe.chacon@ruralsourcing.com',
+            //         lastDate: (new Date().toISOString().substr(5,2)) + '-' + (new Date().toISOString().substr(8,2)) + '-' + (new Date().toISOString().substr(0,4)),
+            //         totalHours: 80,
+            //         //delete: <div className = "Delete-icon" id='delete'><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0} id='delete'/></div>                
+            //     }
+            // ],
+            data: mockData,
+            // data2: [
+            //     {
+            //         date: '12/2/2017',
+            //         name: 'John Cairns',
+            //         email: 'john.cairns@ruralsourcing.com',
+            //         hours: 5,
+            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+            //     },
+            //     {
+            //         date: '12/1/2017',
+            //         name: 'John Cairns',
+            //         email: 'john.cairns@ruralsourcing.com',
+            //         hours: 4,
+            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+            //     },
+            //     {
+            //         date: '12/2/2017',
+            //         name: 'Robert Spidle',
+            //         email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
+            //         hours: 4,
+            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+            //     },
+            //     {
+            //         date: '12/1/2017',
+            //         name: 'Robert Spidle',
+            //         email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
+            //         hours: 4,
+            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+            //     },
+            //     {
+            //         date: '11/23/2017',
+            //         name: 'Joe Chacon',
+            //         email: 'joe.chacon@ruralsourcing.com',
+            //         hours: 12,
+            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+            //     },
+            //     {
+            //         date: '1/23/2016',
+            //         name: 'Joe Chacon',
+            //         email: 'joe.chacon@ruralsourcing.com',
+            //         hours: 7,
+            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
+            //     }
+            // ]
+            data2: mockData2
         }
     
         this.delete = this.delete.bind(this);
@@ -174,7 +178,7 @@ class Results extends React.Component {
                         return row[filter.id] === parseInt(String(filter.value),10);
                         }
                     },
-                    headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', minWidth: '20', marginRight: '10px'},
+                    headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', minWidth: '20px', marginRight: '10px'},
                     style: {fontWeight: 'bold', textAlign: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px'}
                     
                 }],
@@ -238,7 +242,8 @@ class Results extends React.Component {
                     sortable: false,
                     minWidth: 50,
                     headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginRight: '10px'},
-                    style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px'}
+                    style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px'},
+                    Cell: ({ value }) => <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
                 }
                 ],
                 style: {textAlign: 'left'}
@@ -253,7 +258,7 @@ class Results extends React.Component {
                 </Fetch>*/}
                         
                 <ReactTable
-                    minRows={this.state.data.length}
+                    minRows={10}
                     data={tableData}
                     columns={tableColumns}
                     defaultPageSize={10}
