@@ -10,7 +10,8 @@
     "react-icons": "^2.2.5",
     "react-mdl": "^1.10.3",
     "react-scripts": "1.0.10",
-    "react-select": "^1.0.0-rc.5"
+    "react-select": "^1.0.0-rc.5",
+    "react-table": "^6.5.3"
   },
   "scripts": {
     "start": "react-scripts start",

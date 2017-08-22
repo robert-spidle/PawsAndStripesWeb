@@ -17,6 +17,11 @@ class Login extends React.Component{
         this.props.login(response.profileObj);
     }
 
+    failureGoogle(response){
+        console.log(response);
+        this.props.logout;
+    }
+
     render(){
         return(
             <div className="Login">
@@ -37,7 +42,7 @@ class Login extends React.Component{
                                         <text className='Google-text'>Sign in with Google </text>
                                     </div>}
                         onSuccess={this.responseGoogle}
-                        onFailure={this.props.login}
+                        onFailure={this.failureGoogle}
                         style={{
                             display: 'flex',
                             backgroundColor: '#4285F4', 
@@ -57,7 +62,6 @@ class Login extends React.Component{
                     >
                         
                     </GoogleLogin>
-                    
                 </div>
             </div>
         )

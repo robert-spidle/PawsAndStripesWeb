@@ -95,23 +95,23 @@ class Results extends React.Component {
     }
 
     totalHourSum(){
-        console.log(this.state.data);
+        //console.log(this.state.data);
         let hoursSum=0;
         let hoursSum2=0;
         let userCount = this.state.data.length;
         let userCount2 = this.state.data2.length;
         for(let i=0; i<userCount; i++){
             if(this.state.data[i].totalHours){
-                console.log(this.state.data[i]);
+                //console.log(this.state.data[i]);
                 hoursSum += this.state.data[i].totalHours;
-                console.log(hoursSum);
+                //console.log(hoursSum);
             }
         }
         for(let i=0; i<userCount2; i++){
             if(this.state.data2[i].hours){
-                console.log(this.state.data2[i]);
+                //console.log(this.state.data2[i]);
                 hoursSum2 += this.state.data2[i].hours;
-                console.log(hoursSum2);
+                //console.log(hoursSum2);
             }
         }
         this.props.setTotalHours(hoursSum, userCount, hoursSum2, userCount2);
@@ -134,13 +134,17 @@ class Results extends React.Component {
                     accessor: 'name',
                     minWidth: 350,
                     filterable: 'true',
+                    filterMethod: (filter, row) =>
+                        String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
                     headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginLeft: '10px',},
-                    style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px', marginLeft: '10px',}
+                    style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px', marginLeft: '10px'}
                 }, {
                     Header: 'email address',
                     accessor: 'email',
                     minWidth: 350,
                     filterable: 'true',
+                    filterMethod: (filter, row) =>
+                        String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
                     headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px',},
                     style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px',} 
                 }, {
@@ -148,6 +152,8 @@ class Results extends React.Component {
                     accessor: 'lastDate',
                     minWidth: 100,
                     filterable: 'true',
+                    filterMethod: (filter, row) =>
+                        String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
                     headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px',},
                     style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px',}
                 }, {
@@ -155,6 +161,19 @@ class Results extends React.Component {
                     accessor: 'totalHours',
                     minWidth: 75,
                     filterable: 'true',
+                    filterMethod: (filter, row) => {
+                        let comp = String(filter.value).charAt(0);
+                        if(comp === '>'){
+                        console.log(parseInt(String(filter.value).substr(1,),10))
+                        return row[filter.id] > parseInt(String(filter.value).substr(1,), 10);
+                        }
+                        else if(comp === '<'){
+                        return row[filter.id] < parseInt(String(filter.value).substr(1,),10);
+                        }
+                        else{
+                        return row[filter.id] === parseInt(String(filter.value),10);
+                        }
+                    },
                     headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', minWidth: '20', marginRight: '10px'},
                     style: {fontWeight: 'bold', textAlign: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', marginRight: '10px'}
                     
@@ -171,6 +190,8 @@ class Results extends React.Component {
                         accessor: 'date',
                         minWidth: 150,
                         filterable: 'true',
+                        filterMethod: (filter, row) =>
+                            String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
                         headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px', marginLeft: '10px',},
                         style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px', marginLeft: '10px',}
                     }, {
@@ -178,6 +199,8 @@ class Results extends React.Component {
                         accessor: 'name',
                         minWidth: 300,
                         filterable: 'true',
+                        filterMethod: (filter, row) =>
+                            String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
                         headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px',},
                         style: {textAlign: 'left',borderColor: 'lightgrey', borderStyle: 'none none outset none',borderWidth: '1px',}                       
                     }, {
@@ -185,6 +208,8 @@ class Results extends React.Component {
                         accessor: 'email',
                         minWidth: 350,
                         filterable: 'true',
+                        filterMethod: (filter, row) =>
+                            String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
                         headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px'},
                         style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px'}
                     }, {
@@ -192,6 +217,19 @@ class Results extends React.Component {
                         accessor: 'hours',
                         minWidth: 100,
                         filterable: 'true',
+                        filterMethod: (filter, row) => {
+                        let comp = String(filter.value).charAt(0);
+                            if(comp === '>'){
+                            console.log(parseInt(String(filter.value).substr(1,),10))
+                            return row[filter.id] > parseInt(String(filter.value).substr(1,), 10);
+                            }
+                            else if(comp === '<'){
+                            return row[filter.id] < parseInt(String(filter.value).substr(1,),10);
+                            }
+                            else{
+                            return row[filter.id] === parseInt(String(filter.value),10);
+                            }
+                        },
                         headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px'},
                         style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px', fontWeight: 'bold'}                        
                     }, {

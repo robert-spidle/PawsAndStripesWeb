@@ -25,6 +25,7 @@ class App extends Component {
   }
 
   handleLogout() {
+    window.sessionStorage.removeItem('oauth2_tr::http://localhost:3000::197907029127-nq1q9d614of0orumn23pkaq6una1n4sa.apps.googleusercontent.com::_tr_');
     this.setState({
       isLoggedIn:false,
       user: null,

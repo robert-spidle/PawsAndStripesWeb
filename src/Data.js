@@ -35,6 +35,7 @@ class Data extends Component {
   }
 
   handleStartDateChange(e){
+    //console.log(e.target.value);
     this.setState({startDate: e.target.value});
   }
 
@@ -163,26 +164,43 @@ class Data extends Component {
         <div className="Content">
           <div className="Search-criteria">
             <form>
-              <div style={{float: "left", marginRight: "15px"}}>
+              {/*<div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
                   search filter
                 </label>
                 <br />
                 <input type="text" name="filter" className="Input-box-search" value={this.state.searchParams} onChange={this.handleSearchChange}/>
-              </div>
+              </div>*/}
               <div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
                   start date
                 </label>
                 <br />
-                <input type="date" name="start-date" className="Input-box-date" value={this.state.startDate} onChange={this.handleStartDateChange}/>
+                <input 
+                  type="date" 
+                  name="start-date" 
+                  className="Input-box-date" 
+                  value={this.state.startDate} 
+                  onChange={this.handleStartDateChange}
+                  min="2000-01-01"
+                  max="2200-01-01"
+                />
+                
               </div>
               <div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
                   end date
                 </label>
                 <br />
-                <input type="date" name="end-date" className="Input-box-date" value={this.state.endDate} onChange={this.handleEndDateChange}/>
+                <input 
+                  type="date" 
+                  name="end-date" 
+                  className="Input-box-date" 
+                  value={this.state.endDate} 
+                  onChange={this.handleEndDateChange}
+                  min="2000-01-01"
+                  max="2200-01-01"
+                />
               </div>
             </form>
             
