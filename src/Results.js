@@ -201,7 +201,7 @@ class Results extends React.Component {
                         filterable: 'true',
                         filterAll: 'true',
                         filterMethod: (filter, arr) => {
-                            let resultArray = [{name: "Filtered Total Hours", email: "n/a", date: "n/a", hours: 0}];
+                            let resultArray = [{name: "Filtered Total Hours", email: "n/a", date: "n/a", hours: 0, delete: 'n/a'}];
                             let comp = String(filter.value).charAt(0);
                             let num = parseInt(String(filter.value).substr(1,), 10)
                             if(Number.isInteger(num) && !(String(filter.value).length > 1)){
