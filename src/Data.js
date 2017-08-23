@@ -174,7 +174,7 @@ class Data extends Component {
               </div>*/}
               <div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
-                  start date
+                  query start date
                 </label>
                 <br />
                 <input 
@@ -190,7 +190,7 @@ class Data extends Component {
               </div>
               <div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
-                  end date
+                  query end date
                 </label>
                 <br />
                 <input 
