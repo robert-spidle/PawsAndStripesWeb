@@ -13,74 +13,7 @@ class Results extends React.Component {
         super(props);
         this.state = {
             showDelete: false,
-            // data: [
-            //     {
-            //         name: 'Tanner Linsley',
-            //         email: 'tanner.linsley@ruralsourcing.com',
-            //         lastDate: '08-08-2017',
-            //         totalHours: 16,
-            //         //delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-            //     },
-            //     {
-            //         name: 'Robert Spidle',
-            //         email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-            //         lastDate: '07-31-2017',
-            //         totalHours: 50,
-            //         //delete: <div className = "Delete-icon"><MdRemoveCircle style={{  width: '24px',height: '24px'}} tabIndex={0}/></div>
-            //     },
-            //     {
-            //         name: 'Joe Chacon',
-            //         email: 'joe.chacon@ruralsourcing.com',
-            //         lastDate: (new Date().toISOString().substr(5,2)) + '-' + (new Date().toISOString().substr(8,2)) + '-' + (new Date().toISOString().substr(0,4)),
-            //         totalHours: 80,
-            //         //delete: <div className = "Delete-icon" id='delete'><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0} id='delete'/></div>                
-            //     }
-            // ],
             data: mockData,
-            // data2: [
-            //     {
-            //         date: '12/2/2017',
-            //         name: 'John Cairns',
-            //         email: 'john.cairns@ruralsourcing.com',
-            //         hours: 5,
-            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-            //     },
-            //     {
-            //         date: '12/1/2017',
-            //         name: 'John Cairns',
-            //         email: 'john.cairns@ruralsourcing.com',
-            //         hours: 4,
-            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-            //     },
-            //     {
-            //         date: '12/2/2017',
-            //         name: 'Robert Spidle',
-            //         email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-            //         hours: 4,
-            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-            //     },
-            //     {
-            //         date: '12/1/2017',
-            //         name: 'Robert Spidle',
-            //         email: 'robert.spidle@ruralsourcingandthelongestemaildomainever.com',
-            //         hours: 4,
-            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-            //     },
-            //     {
-            //         date: '11/23/2017',
-            //         name: 'Joe Chacon',
-            //         email: 'joe.chacon@ruralsourcing.com',
-            //         hours: 12,
-            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-            //     },
-            //     {
-            //         date: '1/23/2016',
-            //         name: 'Joe Chacon',
-            //         email: 'joe.chacon@ruralsourcing.com',
-            //         hours: 7,
-            //         delete: <div className = "Delete-icon"><MdRemoveCircle style={{width: '24px',height: '24px'}} tabIndex={0}/></div>
-            //     }
-            // ]
             data2: mockData2
         }
     
@@ -137,6 +70,7 @@ class Results extends React.Component {
                     Header: 'Name',
                     accessor: 'name',
                     minWidth: 350,
+                    resizeable: 'false',
                     filterable: 'true',
                     filterMethod: (filter, row) =>
                         String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
@@ -146,6 +80,7 @@ class Results extends React.Component {
                     Header: 'email address',
                     accessor: 'email',
                     minWidth: 350,
+                    resizeable: 'false',
                     filterable: 'true',
                     filterMethod: (filter, row) =>
                         String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
@@ -155,6 +90,7 @@ class Results extends React.Component {
                     Header: 'last volunteer date',
                     accessor: 'lastDate',
                     minWidth: 100,
+                    resizeable: 'false',
                     filterable: 'true',
                     filterMethod: (filter, row) =>
                         String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
@@ -164,6 +100,7 @@ class Results extends React.Component {
                     Header: 'total hours', 
                     accessor: 'totalHours',
                     minWidth: 75,
+                    resizeable: 'false',
                     filterable: 'true',
                     filterMethod: (filter, row) => {
                         let comp = String(filter.value).charAt(0);
@@ -192,7 +129,7 @@ class Results extends React.Component {
                     {
                         Header: 'Date',
                         accessor: 'date',
-                        minWidth: 150,
+                        minWidth: 100,
                         filterable: 'true',
                         filterMethod: (filter, row) =>
                             String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
@@ -210,12 +147,12 @@ class Results extends React.Component {
                     }, {
                         Header: 'email address',
                         accessor: 'email',
-                        minWidth: 350,
+                        minWidth: 400,
                         filterable: 'true',
                         filterMethod: (filter, row) =>
                             String(row[filter.id]).toLowerCase().includes(String(filter.value).toLowerCase()),
-                        headerStyle: {textAlign: 'center', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px'},
-                        style: {alignItems: 'center', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px'}
+                        headerStyle: {textAlign: 'left', borderColor: 'black', borderStyle: 'none none outset none', borderWidth: '2px'},
+                        style: {textAlign: 'left', borderColor: 'lightgrey', borderStyle: 'none none outset none', borderWidth: '1px'}
                     }, {
                         Header: 'daily hours',
                         accessor: 'hours',
