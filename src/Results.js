@@ -354,7 +354,7 @@ class Results extends React.Component {
                 </Fetch>*/}
                         
                 <ReactTable
-                    minRows={10}
+                    minRows={5}
                     data={tableData}
                     columns={tableColumns}
                     defaultPageSize={10}
