@@ -141,6 +141,7 @@ class Results extends React.Component {
                     Header: 'total hours', 
                     accessor: 'totalHours',
                     minWidth: 75,
+                    loading: true,
                     resizeable: 'false',
                     filterable: 'true',
                     filterAll: 'true',
