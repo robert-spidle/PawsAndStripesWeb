@@ -361,7 +361,10 @@ class Results extends React.Component {
                     defaultFilterMethod={ (filter, arr) =>{
                         let resultArray = [{name: "Filtered Total Hours", email: "", lastDate: "", totalHours: 0, date: '', hours: 0, delete: 'n/a'}]
                         for(let i=0; i< arr.length; i++){
-                            if (String(arr[i][filter.id]).toLowerCase().includes(String(filter.value).toLowerCase())){
+                            if(arr[i]['name'] === "Filtered Total Hours"){
+                                        continue;
+                            }
+                            if (String(arr[i][filter.id]).toLowerCase().trim().includes(String(filter.value).toLowerCase().trim())){
                                 resultArray.push(arr[i]);
                             }
                         }
