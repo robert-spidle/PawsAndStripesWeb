@@ -97,8 +97,17 @@ class Results extends React.Component {
                         borderStyle: 'none none outset none', 
                         borderWidth: '1px', 
                         marginLeft: '10px'
-                    } 
-    
+                    },
+                    Filter: ({ filter, onChange }) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                        border: '1px solid #666'
+                                    }}
+                                />
+                            )
                 }, {
                     Header: 'email address',
                     accessor: 'email',
@@ -117,7 +126,17 @@ class Results extends React.Component {
                         borderColor: 'lightgrey', 
                         borderStyle: 'none none outset none',
                         borderWidth: '1px'
-                    } 
+                    },
+                    Filter: ({ filter, onChange }) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                        border: '1px solid #666'
+                                    }}
+                                />
+                            ) 
                 }, {
                     Header: 'last volunteer date',
                     accessor: 'lastDate',
@@ -136,12 +155,21 @@ class Results extends React.Component {
                         borderColor: 'lightgrey', 
                         borderStyle: 'none none outset none', 
                         borderWidth: '1px'
-                    }
+                    },
+                    Filter: ({ filter, onChange }) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                        border: '1px solid #666'
+                                    }}
+                                />
+                            )
                 }, {
                     Header: 'total hours', 
                     accessor: 'totalHours',
                     minWidth: 75,
-                    loading: true,
                     resizeable: 'false',
                     filterable: 'true',
                     filterAll: 'true',
@@ -195,8 +223,17 @@ class Results extends React.Component {
                         borderStyle: 'none none outset none', 
                         borderWidth: '1px', 
                         marginRight: '10px'
-                    }
-                    
+                    },
+                    Filter: ({ filter, onChange }) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                        border: '1px solid #666'
+                                    }}
+                                />
+                            )                    
                 }],
                 style: {textAlign: 'left'}
         }];
@@ -224,7 +261,17 @@ class Results extends React.Component {
                             borderStyle: 'none none outset none',
                             borderWidth: '1px', 
                             marginLeft: '10px'
-                        }
+                        },
+                    Filter: ({ filter, onChange }) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                        border: '1px solid #666'
+                                    }}
+                                />
+                            )                        
                     }, {
                         Header: 'name',
                         accessor: 'name',
@@ -242,7 +289,17 @@ class Results extends React.Component {
                             borderColor: 'lightgrey', 
                             borderStyle: 'none none outset none',
                             borderWidth: '1px'
-                        }                       
+                        },
+                        Filter: ({ filter, onChange }) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                        border: '1px solid #666'
+                                    }}
+                                />
+                            )                                               
                     }, {
                         Header: 'email address',
                         accessor: 'email',
@@ -260,7 +317,17 @@ class Results extends React.Component {
                             borderColor: 'lightgrey', 
                             borderStyle: 'none none outset none', 
                             borderWidth: '1px'
-                        }
+                        },
+                        Filter: ({ filter, onChange }) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                        border: '1px solid #666'
+                                    }}
+                                />
+                            )                        
                     }, {
                         Header: 'daily hours',
                         accessor: 'hours',
@@ -317,7 +384,17 @@ class Results extends React.Component {
                             borderStyle: 'none none outset none', 
                             borderWidth: '1px', 
                             fontWeight: 'bold'
-                        }                        
+                        },
+                        Filter: ({ filter, onChange }) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                        border: '1px solid #666',                                        
+                                    }}
+                                />
+                            )                        
                     }, {
                     Header: '',
                     accessor: 'delete',

@@ -176,14 +176,14 @@
 }
 
 .Input-box-date {
-  width: 150px;
+  width: 180px;
   height: 40px;
   background-color: #000;
   color: #FFF;
-  border: 1px, solid, #FFF;
-  font-size: 16px;
+  border: 1px solid #FFF;
+  font-size: 18px;
   text-align: center;
-  font-weight: bold;
+  border-radius: 3px;
 }
 
 .Input-box-search {
