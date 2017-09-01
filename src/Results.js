@@ -5,6 +5,7 @@ import './App.css';
 import { MdRemoveCircle } from 'react-icons/lib/md';
 import mockData from './MOCK_DATA.json';
 import mockData2 from './MOCK_DATA_2.json';
+//import getHoursWithDate from './getHoursWithDate.json'
 // import Fetch from 'react-fetch';
 
 class Results extends React.Component {
@@ -22,8 +23,8 @@ class Results extends React.Component {
         this.delete = this.delete.bind(this);
         this.totalHourSum = this.totalHourSum.bind(this);
         this.setData = this.setData.bind(this);
+        this.setData2 = this.setData2.bind(this);
         this.setDisplayData = this.setDisplayData.bind(this);
-
     }
     
     componentDidMount(){
@@ -55,7 +56,13 @@ class Results extends React.Component {
 
     setData(data){
         this.setState({
-            data: data,
+            data: data
+        })
+    }
+
+    setData2(data){
+        this.setState({
+            data2: data
         })
     }
 
@@ -427,9 +434,8 @@ class Results extends React.Component {
         let tableColumns = this.props.displayScreen ? columns : columns2;
         return(
             <div> 
-                {/*<Fetch url="http://www.academicstudysolutions.com/pawsstripes/get.php?action=fullreport" options={{mode:'no-cors'}}>
-                    <TestComponent/>
-                </Fetch>*/}
+                {/*<Fetch url={"http://academicstudysolutions.com/pawsstripes/get.php?action=fullreportwithdate&sdate=2017-01-01&edate=2017-12-31"}
+                onSuccess={(response) => console.log(response.data)} onError={(error) => console.log(error)} options={'no-cors'}/>*/}
                         
                 <ReactTable
                     minRows={5}
@@ -480,11 +486,3 @@ class Results extends React.Component {
 }
 
 export default Results;
-
-
-// class TestComponent extends React.Component {
-//     render() {
-//         console.log(this.props);
-//         return <div/>
-//     }
-// }

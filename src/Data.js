@@ -3,6 +3,8 @@ import './App.css';
 import Results from './Results';
 import { MdPerson, MdSchedule } from 'react-icons/lib/md';
 
+import 'react-datepicker/dist/react-datepicker.css';
+
 class Data extends Component {
 
   constructor(props){
@@ -34,19 +36,22 @@ class Data extends Component {
     this.setTotalHours = this.setTotalHours.bind(this);
   }
 
-  handleStartDateChange(e){
-    //console.log(e.target.value);
-    this.setState({startDate: e.target.value});
+  handleStartDateChange(date){
+    this.setState({
+      startDate: date.target.value
+    });
   }
 
-  handleEndDateChange(e){
-    if(e.target.value >= this.state.startDate){
-      this.setState({endDate: e.target.value});
-    }
-    else{
-      alert("End date must be after start date.");
+  handleEndDateChange(date){
+    if(date.target.value >= this.state.startDate){
+      this.setState({
+        endDate: date.target.value
+      })
+    } else {
+      alert("End date must be after start date.")
     }
   }
+
 
   handleSearchChange(e){
     this.setState({searchParams: e.target.value});
@@ -165,13 +170,6 @@ class Data extends Component {
         <div className="Content">
           <div className="Search-criteria">
             <form>
-              {/*<div style={{float: "left", marginRight: "15px"}}>
-                <label className="Labels">
-                  search filter
-                </label>
-                <br />
-                <input type="text" name="filter" className="Input-box-search" value={this.state.searchParams} onChange={this.handleSearchChange}/>
-              </div>*/}
               <div style={{float: "left", marginRight: "15px"}}>
                 <label className="Labels">
                   query start date
@@ -183,8 +181,8 @@ class Data extends Component {
                   className="Input-box-date" 
                   value={this.state.startDate} 
                   onChange={this.handleStartDateChange}
-                  min="2000-01-01"
-                  max="2200-01-01"
+                  min="2010-01-01"
+                  max="2100-01-01"
                 />
                 
               </div>
@@ -199,8 +197,8 @@ class Data extends Component {
                   className="Input-box-date" 
                   value={this.state.endDate} 
                   onChange={this.handleEndDateChange}
-                  min="2000-01-01"
-                  max="2200-01-01"
+                  min="2010-01-01"
+                  max="2100-01-01"
                 />
               </div>
             </form>
