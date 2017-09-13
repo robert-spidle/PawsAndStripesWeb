@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
 import Results from './Results';
-import { MdPerson, MdSchedule } from 'react-icons/lib/md';
+import { MdPerson, MdSchedule, MdSearch } from 'react-icons/lib/md';
 
-import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
+
+import manualData from './manual-fetch-date.json';
+import manualData2 from './manual-fetch-data2.json';
+
+// import 'react-datepicker/dist/react-datepicker.css';
 
 class Data extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      searchParams: "", 
       startDate: new Date().toISOString().substr(0,10), 
       endDate: new Date().toISOString().substr(0,10),
+      maxDate: new Date().toISOString().substr(0,10),
       button1Color: '#9c8158',
       button2Color: '#000',
       button1Selected: true,
@@ -23,17 +28,21 @@ class Data extends Component {
       totalHours: 0,
       userCount: 0,
       totalHours2: 0,
-      userCount2: 0
+      userCount2: 0,
+      data1: [],
+      data2: []
     }
     this.handleStartDateChange = this.handleStartDateChange.bind(this);
     this.handleEndDateChange = this.handleEndDateChange.bind(this);
-    this.handleSearchChange = this.handleSearchChange.bind(this);
     this.activateButton1 = this.activateButton1.bind(this);
     this.activateButton2 = this.activateButton2.bind(this);
     this.toggle = this.toggle.bind(this);
     this.togglePersonTT = this.togglePersonTT.bind(this);
     this.toggleSceduleTT = this.toggleSceduleTT.bind(this);
     this.setTotalHours = this.setTotalHours.bind(this);
+    // this.setFetch1 = this.setFetch1.bind(this);
+    // this.setFetch2 = this.setFetch2.bind(this);
+    this.fetchData = this.fetchData.bind(this);
   }
 
   handleStartDateChange(date){
@@ -52,10 +61,6 @@ class Data extends Component {
     }
   }
 
-
-  handleSearchChange(e){
-    this.setState({searchParams: e.target.value});
-  }
 
   activateButton1(e){
     if(this.state.button1Color==='#000' && !this.state.button1Selected){
@@ -106,11 +111,45 @@ class Data extends Component {
     })
   }
 
+  fetchData(){
+    console.log("Fetching");
+    let data1_f, data2_f;
+      axios.get("http://academicstudysolutions.com/pawsstripes/get.php?action=hourswithdate&sdate=" + this.props.startDate + "&edate=" + this.props.endDate)
+        .then(function(response) {
+          data1_f =  response.data;
+        }).catch(function(ex){
+          console.log(ex);
+        });
+
+      axios.get("http://academicstudysolutions.com/pawsstripes/get.php?action=fullreportwithdate&sdate=" + this.props.startDate + "&edate=" + this.props.endDate)
+        .then(function(response){
+          data2_f = response.data
+        }).catch(function(ex){
+          console.log(ex);
+        });
+
+      this.setState({
+        data1: data1_f,
+        data2: data2_f
+      });
+  }
+
+  // setFetch1(data) {
+  //   this.setState({
+  //     data1: data
+  //   })
+  // }
+  // setFetch2(data) {
+  //   this.setState({
+  //     data2: data
+  //   })
+  // }
+
   render() {
    let tipString = 'Filter the table by typing in the text boxes below the column headers. The hours columns can filter less than (<10), greater than (>3) or equal to (6).';
    let menuOpen = this.state.isMenuOpen;
-   let totalHoursDisplay = this.state.button1Selected ? this.state.totalHours : this.state.totalHours2;
-   let userCountDisplay = this.state.button1Selected ? this.state.userCount : this.state.userCount2;
+   let totalHoursDisplay = this.state.totalHours;
+   let userCountDisplay =this.state.userCount;
     return (
       <div className="App">
         <link href="https://fonts.googleapis.com/css?family=Stardos+Stencil" rel="stylesheet"/>
@@ -182,7 +221,7 @@ class Data extends Component {
                   value={this.state.startDate} 
                   onChange={this.handleStartDateChange}
                   min="2010-01-01"
-                  max="2100-01-01"
+                  max={this.state.maxDate}
                 />
                 
               </div>
@@ -198,9 +237,28 @@ class Data extends Component {
                   value={this.state.endDate} 
                   onChange={this.handleEndDateChange}
                   min="2010-01-01"
-                  max="2100-01-01"
+                  max={this.state.maxDate}
                 />
               </div>
+              <div style={{float:"left", marginRight: "15px"}}>
+                <br />
+                <MdSearch
+                  style={{
+                    border: 'solid', 
+                    borderWidth:'1px', 
+                    borderRadius: '48px',
+                    position:'relative',  
+                    textAlign:'right', 
+                    marginLeft: '5px',
+                    padding: '5px',
+                    cursor: 'pointer',
+                    backgroundColor: 'black'
+                  }}
+                  size={36}
+                  tabIndex={0}
+                  onClick={this.fetchData}
+                />
+            </div>
             </form>
             
             <div className='Button-container'>
@@ -254,12 +312,10 @@ class Data extends Component {
           </div>
           <div className='Results-table'>
             {/* Instance of Results class to display search results */}
-            <Results 
-              searchParams={this.state.searchParams} 
-              startDate={this.state.startDate} 
-              endDate={this.state.endDate} 
+            <Results  
+              data1={this.state.data1} 
+              data2={this.state.data2} 
               displayScreen={this.state.button1Selected}
-              filterString={this.state.searchParams}
               setTotalHours={this.setTotalHours}
             />            
           </div>

@@ -177,14 +177,15 @@
 
 .Input-box-date {
   width: 180px;
-  height: 40px;
+  height: 46px;
   background-color: #000;
   color: #FFF;
   border: 1px solid #FFF;
   font-size: 18px;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
+  padding-top: 1px;
 }
 
 .Input-box-search {
@@ -268,6 +269,7 @@
   border-style: solid;
   border-width: 2px;
   border-color: #9c8158;
+  border-radius: 5px;
 }
 
 .Search-criteria {
